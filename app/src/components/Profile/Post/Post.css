@@ -1,0 +1,24 @@
+.content-posts {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.content-posts-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+}
+.content-posts-item:last-child {
+  margin-bottom: 0;
+}
+.content-posts-item__image {
+  margin-right: 20px;
+  height: 50px;
+  width: 50px;
+  -o-object-fit: cover;
+  object-fit: cover;
+  border-radius: 25px;
+}
+.content-posts-item__text {
+  font-size: 30px;
+}

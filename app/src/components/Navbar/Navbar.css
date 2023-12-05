@@ -1,0 +1,19 @@
+.navbar {
+  box-sizing: border-box;
+  padding: 10px;
+  background-color: green;
+  font-size: 30px;
+}
+.navbar-list {
+  list-style: none;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+}
+.navbar-list-item:last-child {
+  margin-top: 30px;
+}
+.navbar-list-item__link {
+  text-decoration: none;
+  color: black;
+}

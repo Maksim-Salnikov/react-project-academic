@@ -1,0 +1,28 @@
+.content-mypost {
+  margin-bottom: 30px;
+}
+.content-mypost__title {
+  margin: 0;
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+.content-mypost-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.content-mypost-form__input {
+  width: 100%;
+  padding: 20px 0px;
+  margin-bottom: 10px;
+  background-color: lightgrey;
+  border: none;
+}
+.content-mypost-form__button {
+  background-color: green;
+  color: white;
+  border: none;
+  padding: 5px 100px 5px 5px;
+  font-size: 20px;
+}
