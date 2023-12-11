@@ -36,9 +36,8 @@ const Profile = () => {
         </div>
       </div>
       <MyPost />
-      <Post />
-      <Post />
-      <Post />
+      <Post message="Hey, how are you?" like="15" />
+      <Post message="It's my first post" like="20" />
     </section>
   );
 };
