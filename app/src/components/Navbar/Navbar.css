@@ -16,12 +16,11 @@
   text-decoration: none;
 }
 
+.navbar__list__item.active {
+  background-color: yellow;
+}
 .navbar__list__item:last-child {
   margin-top: 30px;
-}
-
-.active {
-  background-color: yellow;
 }
 
 .navbar__list__item__link {
