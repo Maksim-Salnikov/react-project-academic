@@ -12,16 +12,20 @@
 .dialogs-interluctors {
   width: 30%;
   margin: 0;
-  color: grey;
   border-right: 2px solid green;
+  display: flex;
+  flex-direction: column;
 }
 .dialogs-interluctors-item {
+  display: list-item;
   margin-bottom: 20px;
   font-size: 30px;
+  color: grey;
+  text-decoration: none;
 }
 .dialogs-interluctors-item.active {
   color: black;
-  font-size: 40px;
+  font-weight: 500;
 }
 .dialogs-interluctors-item:last-child {
   margin-bottom: 0;
