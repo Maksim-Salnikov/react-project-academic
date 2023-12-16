@@ -4,16 +4,27 @@
   background-color: green;
   font-size: 30px;
 }
-.navbar-list {
+.navbar__list {
+  display: flex;
+  flex-direction: column;
   list-style: none;
-  text-decoration: none;
   margin: 0;
   padding: 0;
 }
-.navbar-list-item:last-child {
+
+.navbar__list__item {
+  text-decoration: none;
+}
+
+.navbar__list__item:last-child {
   margin-top: 30px;
 }
-.navbar-list-item__link {
+
+.active {
+  background-color: yellow;
+}
+
+.navbar__list__item__link {
   text-decoration: none;
   color: black;
 }

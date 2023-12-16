@@ -1,35 +1,26 @@
 import React from "react";
 import "./Navbar.css";
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   return (
     <nav className="navbar">
-      <ul className="navbar-list">
-        <li className="navbar-list-item">
-          <a href="/Profile" className="navbar-list-item__link">
-            Profile
-          </a>
-        </li>
-        <li className="navbar-list-item">
-          <a href="/Dialogs" className="navbar-list-item__link">
-            Messages
-          </a>
-        </li>
-        <li className="navbar-list-item">
-          <a href="News" className="navbar-list-item__link">
-            News
-          </a>
-        </li>
-        <li className="navbar-list-item">
-          <a href="/Music" className="navbar-list-item__link">
-            Music
-          </a>
-        </li>
-        <li className="navbar-list-item">
-          <a href="/Settings" className="navbar-list-item__link">
-            Settings
-          </a>
-        </li>
+      <ul className="navbar__list">
+        <NavLink to="/Profile" className="navbar__list__item">
+          <span className="navbar__list__item__link">Profile</span>
+        </NavLink>
+        <NavLink to="/Dialogs" className="navbar__list__item">
+          <span className="navbar__list__item__link">Messages</span>
+        </NavLink>
+        <NavLink to="/News" className="navbar__list__item">
+          <span className="navbar__list__item__link">News</span>
+        </NavLink>
+        <NavLink to="/Music" className="navbar__list__item">
+          <span className="navbar__list__item__link">Music</span>
+        </NavLink>
+        <NavLink to="/Settings" className="navbar__list__item">
+          <span className="navbar__list__item__link">Settings</span>
+        </NavLink>
       </ul>
     </nav>
   );
