@@ -1,0 +1,32 @@
+.content-footer {
+  margin-bottom: 20px;
+}
+.content-footer__image {
+  width: 100%;
+  height: 300px;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+.content-profile {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+}
+.content-profile__avatar {
+  margin-right: 30px;
+  width: 150px;
+  height: 150px;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+.content-profile-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 20px;
+}
+.content-profile-info__name {
+  margin: 0;
+  margin-bottom: 30px;
+  font-size: 30px;
+}

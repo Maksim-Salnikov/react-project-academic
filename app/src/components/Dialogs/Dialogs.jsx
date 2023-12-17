@@ -1,6 +1,8 @@
 import React from "react";
 import "./Dialogs.css";
 import { NavLink } from "react-router-dom";
+import Dialog from "./Dialog/Dialog";
+import Message from "./Message/Message";
 
 const Dialogs = (props) => {
   return (
@@ -8,26 +10,18 @@ const Dialogs = (props) => {
       <h3 className="dialogs-title">Dialogs</h3>
       <div className="dialogs-wrapper">
         <ul className="dialogs-interluctors">
-          <NavLink to="/Dialogs/1" className="dialogs-interluctors-item">
-            <span className="dialogs-interluctors-item__name">Andrew</span>
-          </NavLink>
-          <NavLink to="/Dialogs/2" className="dialogs-interluctors-item">
-            <span className="dialogs-interluctors-item__name">Dmitry</span>
-          </NavLink>
-          <NavLink to="/Dialogs/3" className="dialogs-interluctors-item">
-            <span className="dialogs-interluctors-item__name">Sasha</span>
-          </NavLink>
-          <NavLink to="/Dialogs/4" className="dialogs-interluctors-item">
-            <span className="dialogs-interluctors-item__name">Sveta</span>
-          </NavLink>
-          <NavLink to="/Dialogs/5" className="dialogs-interluctors-item">
-            <span className="dialogs-interluctors-item__name">Valera</span>
-          </NavLink>
-          <NavLink to="/Dialogs/6" className="dialogs-interluctors-item">
-            <span className="dialogs-interluctors-item__name">Viktor</span>
-          </NavLink>
+          <Dialog name="Andrew" id="1" />
+          <Dialog name="Dmitry" id="2" />
+          <Dialog name="Sasha" id="3" />
+          <Dialog name="Sveta" id="4" />
+          <Dialog name="Valera" id="5" />
+          <Dialog name="Viktor" id="6" />
         </ul>
-        <div className="dialogs-correspondense"></div>
+        <div className="dialogs-correspondense">
+          <Message textMessage="Привет, как дела?" />
+          <Message textMessage="Привет, все путем" />
+          <Message textMessage="Это очень хорошо!" />
+        </div>
       </div>
     </section>
   );
