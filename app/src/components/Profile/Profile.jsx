@@ -10,6 +10,10 @@ let postsData = [
   { id: 3, message: "52, лонг лайв, не теряем связь", like: "83" },
 ];
 
+let postsElements = postsData.map((post) => (
+  <Post message={post.message} like={post.like} />
+));
+
 const Profile = () => {
   return (
     <section className="content">
@@ -21,9 +25,7 @@ const Profile = () => {
         website="https://vk.com/maksim.magnus"
       />
       <MyPost />
-      <Post message={postsData[0].message} like={postsData[0].like} />
-      <Post message={postsData[1].message} like={postsData[1].like} />
-      <Post message={postsData[2].message} like={postsData[2].like} />
+      {postsElements}
     </section>
   );
 };
