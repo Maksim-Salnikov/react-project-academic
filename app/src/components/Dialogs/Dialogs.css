@@ -16,20 +16,7 @@
   display: flex;
   flex-direction: column;
 }
-.dialogs-interluctors-item {
-  display: list-item;
-  margin-bottom: 20px;
-  font-size: 30px;
-  color: grey;
-  text-decoration: none;
-}
-.dialogs-interluctors-item.active {
-  color: black;
-  font-weight: 500;
-}
-.dialogs-interluctors-item:last-child {
-  margin-bottom: 0;
-}
+
 .dialogs-correspondense {
   width: 70%;
   padding: 10px;
