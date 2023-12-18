@@ -5,7 +5,7 @@ import Post from "./Post/Post";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 
 const Profile = (props) => {
-  let postsElements = props.postsData.map((post) => (
+  let postsElements = props.profilePage.postsData.map((post) => (
     <Post message={post.message} like={post.like} />
   ));
 
