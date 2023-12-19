@@ -1,0 +1,28 @@
+.dialogs-correspondense-message {
+  display: flex;
+  align-items: flex-end;
+  max-width: 100%;
+  margin-bottom: 10px;
+}
+.dialogs-correspondense-message:nth-child(even) {
+  flex-direction: row-reverse;
+}
+.dialogs-correspondense-message:last-child {
+  margin-bottom: 0;
+}
+.dialogs-correspondense-message__avatar {
+  height: 50px;
+  width: 50px;
+  border-radius: 25px;
+  border: 1px solid black;
+}
+.dialogs-correspondense-message__text {
+  background-color: yellow;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 5px;
+  min-height: 50px;
+  vertical-align: middle;
+  margin-right: 10px;
+  margin-left: 10px;
+}
