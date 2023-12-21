@@ -1,5 +1,6 @@
 .dialogs-interluctors-item {
-  display: list-item;
+  display: flex;
+  align-items: center;
   margin-bottom: 20px;
   font-size: 30px;
   color: grey;
@@ -11,4 +12,11 @@
 }
 .dialogs-interluctors-item:last-child {
   margin-bottom: 0;
+}
+.dialogs-interluctors-item__avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  border: 1px solid black;
+  margin-right: 10px;
 }
