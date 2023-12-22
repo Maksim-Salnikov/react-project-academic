@@ -4,25 +4,29 @@ import "./MyPost.css";
 const MyPost = (props) => {
   let newPostElement = React.createRef();
 
-  let newPost = () => {
+  let addPost = () => {
+    props.addPost();
+  };
+
+  let onPostChange = () => {
     let text = newPostElement.current.value;
-    props.addPost(text);
-    newPostElement.current.value = "";
+    props.updateNewPostText(text);
   };
 
   return (
     <div className="content-mypost">
       <h3 className="content-mypost__title">My posts</h3>
       <form action="text" className="content-mypost-form">
-        <input
+        <textarea
+          onChange={onPostChange}
+          value={props.newPostText}
           ref={newPostElement}
-          type="text"
           className="content-mypost-form__input"
           placeholder="your news..."
         />
         <button
           type="button"
-          onClick={newPost}
+          onClick={addPost}
           className="content-mypost-form__button"
         >
           Send

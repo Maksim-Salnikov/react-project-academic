@@ -7,6 +7,7 @@ let state = {
       { id: 2, message: "Сегодня качнул бицуху жестко", like: "228" },
       { id: 3, message: "52, лонг лайв, не теряем связь", like: "83" },
     ],
+    newPostText: "",
   },
   dialogsPage: {
     dialogsData: [
@@ -56,13 +57,19 @@ let state = {
   },
 };
 
-export let addPost = (postMessage) => {
+export let addPost = () => {
   let newPost = {
     id: 5,
-    message: postMessage,
+    message: state.profilePage.newPostText,
     like: 0,
   };
   state.profilePage.postsData.push(newPost);
+  state.profilePage.newPostText = "";
+  rerenderEntireTree(state);
+};
+
+export let updateNewPostText = (newText) => {
+  state.profilePage.newPostText = newText;
   rerenderEntireTree(state);
 };
 
