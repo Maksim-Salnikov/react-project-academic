@@ -21,7 +21,11 @@ const Dialogs = (props) => {
         <ul className="dialogs-interluctors">{dialogsElements}</ul>
         <div className="dialogs-correspondense">
           {messagesElements}
-          <NewMessage />
+          <NewMessage
+            addMessage={props.addMessage}
+            newMessageText={props.dialogsPage.newMessageText}
+            updateNewMessageText={props.updateNewMessageText}
+          />
         </div>
       </div>
     </section>

@@ -54,6 +54,7 @@ let state = {
       { id: 4, textMessage: "Да, конечно поеду пить пиво)" },
       { id: 5, textMessage: "Тогда в 52 у меня хд хд хд" },
     ],
+    newMessageText: "",
   },
 };
 
@@ -72,5 +73,22 @@ export let updateNewPostText = (newText) => {
   state.profilePage.newPostText = newText;
   rerenderEntireTree(state);
 };
+
+export let addMessage = () => {
+  let newMessage = {
+    id: 6,
+    textMessage: state.dialogsPage.newMessageText,
+  };
+  state.dialogsPage.messagesData.push(newMessage);
+  state.dialogsPage.newMessageText = "";
+  rerenderEntireTree(state);
+};
+
+export let updateNewMessageText = (newText) => {
+  state.dialogsPage.newMessageText = newText;
+  rerenderEntireTree(state);
+};
+
+window.state = state;
 
 export default state;
