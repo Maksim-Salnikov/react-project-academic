@@ -3,6 +3,7 @@ import "./Profile.css";
 import MyPost from "./MyPost/MyPost";
 import Post from "./Post/Post";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
+import { addPost } from "../../redux/state";
 
 const Profile = (props) => {
   let postsElements = props.profilePage.postsData.map((post) => (
@@ -18,7 +19,7 @@ const Profile = (props) => {
         education="School 21th, Lipetsk"
         website="https://vk.com/maksim.magnus"
       />
-      <MyPost />
+      <MyPost addPost={props.addPost} />
       {postsElements}
     </section>
   );

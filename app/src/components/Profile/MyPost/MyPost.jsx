@@ -1,12 +1,12 @@
 import React from "react";
 import "./MyPost.css";
 
-const MyPost = () => {
+const MyPost = (props) => {
   let newPostElement = React.createRef();
 
-  let addPost = () => {
+  let newPost = () => {
     let text = newPostElement.current.value;
-    alert(text);
+    props.addPost(text);
   };
 
   return (
@@ -19,7 +19,7 @@ const MyPost = () => {
           className="content-mypost-form__input"
           placeholder="your news..."
         />
-        <button onClick={addPost} className="content-mypost-form__button">
+        <button onClick={newPost} className="content-mypost-form__button">
           Send
         </button>
       </form>
