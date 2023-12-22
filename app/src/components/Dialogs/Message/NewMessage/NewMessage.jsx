@@ -17,6 +17,7 @@ const NewMessage = () => {
         className="dialogs-correspondense-form__input"
       />
       <button
+        type="button"
         onClick={sendMessage}
         className="dialogs-correspondense-form__button"
       >

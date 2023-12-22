@@ -7,6 +7,7 @@ const MyPost = (props) => {
   let newPost = () => {
     let text = newPostElement.current.value;
     props.addPost(text);
+    newPostElement.current.value = "";
   };
 
   return (
@@ -19,7 +20,11 @@ const MyPost = (props) => {
           className="content-mypost-form__input"
           placeholder="your news..."
         />
-        <button onClick={newPost} className="content-mypost-form__button">
+        <button
+          type="button"
+          onClick={newPost}
+          className="content-mypost-form__button"
+        >
           Send
         </button>
       </form>
