@@ -3,6 +3,7 @@ import "./Dialogs.css";
 import { NavLink } from "react-router-dom";
 import Dialog from "./Dialog/Dialog";
 import Message from "./Message/Message";
+import NewMessage from "./Message/NewMessage/NewMessage";
 
 const Dialogs = (props) => {
   let dialogsElements = props.dialogsPage.dialogsData.map((dialog) => (
@@ -18,7 +19,10 @@ const Dialogs = (props) => {
       <h3 className="dialogs-title">Dialogs</h3>
       <div className="dialogs-wrapper">
         <ul className="dialogs-interluctors">{dialogsElements}</ul>
-        <div className="dialogs-correspondense">{messagesElements}</div>
+        <div className="dialogs-correspondense">
+          {messagesElements}
+          <NewMessage />
+        </div>
       </div>
     </section>
   );
