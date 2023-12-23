@@ -8,7 +8,7 @@ import Dialogs from "./components/Dialogs/Dialogs";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
-import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { addMessage, addPost, updateNewMessageText } from "./redux/state";
 
 const App = (props) => {
