@@ -3,7 +3,6 @@ import "./Profile.css";
 import MyPost from "./MyPost/MyPost";
 import Post from "./Post/Post";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
-import { addPost } from "../../redux/state";
 
 const Profile = (props) => {
   let postsElements = props.profilePage.postsData.map((post) => (
