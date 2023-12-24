@@ -20,9 +20,8 @@ const Profile = (props) => {
         website="https://vk.com/maksim.magnus"
       />
       <MyPost
-        addPost={props.addPost}
         newPostText={props.profilePage.newPostText}
-        updateNewPostText={props.updateNewPostText}
+        dispatch={props.dispatch}
       />
       {postsElements}
     </section>
