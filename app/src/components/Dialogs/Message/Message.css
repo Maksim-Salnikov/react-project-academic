@@ -25,4 +25,6 @@
   vertical-align: middle;
   margin-right: 10px;
   margin-left: 10px;
+  max-width: 70%;
+  word-wrap: break-word;
 }
