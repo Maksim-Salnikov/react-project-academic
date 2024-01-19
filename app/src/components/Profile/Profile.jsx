@@ -1,14 +1,9 @@
 import React from "react";
 import "./Profile.css";
-import MyPost from "./MyPost/MyPost";
-import Post from "./Post/Post";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
+import MyPostContainer from "./MyPost/MyPostContainer";
 
 const Profile = (props) => {
-  let postsElements = props.profilePage.postsData.map((post) => (
-    <Post message={post.message} like={post.like} />
-  ));
-
   return (
     <section className="content">
       <ProfileInfo
@@ -18,11 +13,7 @@ const Profile = (props) => {
         education="School 21th, Lipetsk"
         website="https://vk.com/maksim.magnus"
       />
-      <MyPost
-        newPostText={props.profilePage.newPostText}
-        dispatch={props.dispatch}
-      />
-      {postsElements}
+      <MyPostContainer store={props.store} />
     </section>
   );
 };

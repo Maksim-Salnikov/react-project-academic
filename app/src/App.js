@@ -9,30 +9,18 @@ import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
 import { Routes, Route } from "react-router-dom";
+import DialogsContainer from "./components/Dialogs/DialogsContainer";
 
 const App = (props) => {
   return (
     <div className="wrapper">
       <Header />
-      <Navbar friendsData={props.state.dialogsPage.dialogsData} />
+      <Navbar friendsData={props.store.getState().dialogsPage.dialogsData} />
       <Routes>
-        <Route
-          path="/Profile"
-          element={
-            <Profile
-              profilePage={props.state.profilePage}
-              dispatch={props.dispatch}
-            />
-          }
-        />
+        <Route path="/Profile" element={<Profile store={props.store} />} />
         <Route
           path="/Dialogs/*"
-          element={
-            <Dialogs
-              dialogsPage={props.state.dialogsPage}
-              dispatch={props.dispatch}
-            />
-          }
+          element={<DialogsContainer store={props.store} />}
         />
         <Route path="/News" element={<News />} />
         <Route path="/Music" element={<Music />} />

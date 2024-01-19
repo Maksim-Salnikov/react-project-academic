@@ -1,20 +1,16 @@
 import React from "react";
 import "./NewMessage.css";
-import {
-  addMessageCreator,
-  updateNewMessageTextCreator,
-} from "../../../../redux/dialogs-reducer";
 
 const NewMessage = (props) => {
   let newMessageElement = React.createRef();
 
   let addMessage = () => {
-    props.dispatch(addMessageCreator());
+    props.addMessage();
   };
 
   let onMessageChange = () => {
     let text = newMessageElement.current.value;
-    props.dispatch(updateNewMessageTextCreator(text));
+    props.onMessageChange(text);
   };
 
   return (
