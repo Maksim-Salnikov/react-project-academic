@@ -23,6 +23,7 @@ const Dialogs = (props) => {
           <NewMessage
             addMessage={props.addMessage}
             onMessageChange={props.onMessageChange}
+            newMessageText={props.newMessageText}
           />
         </div>
       </div>

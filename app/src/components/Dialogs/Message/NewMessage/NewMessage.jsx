@@ -4,10 +4,6 @@ import "./NewMessage.css";
 const NewMessage = (props) => {
   let newMessageElement = React.createRef();
 
-  let addMessage = () => {
-    props.addMessage();
-  };
-
   let onMessageChange = () => {
     let text = newMessageElement.current.value;
     props.onMessageChange(text);
@@ -24,7 +20,7 @@ const NewMessage = (props) => {
       />
       <button
         type="button"
-        onClick={addMessage}
+        onClick={props.addMessage}
         className="dialogs-correspondense-form__button"
       >
         Send
