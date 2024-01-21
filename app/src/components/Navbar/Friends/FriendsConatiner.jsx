@@ -7,7 +7,7 @@ import Friend from "./Friend/Friend";
 let mapStateToProps = (state) => {
   return {
     friendsElements: state.dialogsPage.dialogsData.map((friend) => (
-      <Friend avatar={friend.avatar} name={friend.name} />
+      <Friend avatar={friend.avatar} name={friend.name} key={friend.id} />
     )),
   };
 };
