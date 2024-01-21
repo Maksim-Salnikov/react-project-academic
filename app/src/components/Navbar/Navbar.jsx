@@ -8,19 +8,22 @@ const Navbar = (props) => {
     <nav className="navbar">
       <ul className="navbar__list">
         <NavLink to="/Profile" className="navbar__list__item">
-          <span className="navbar__list__item__link">Profile</span>
+          <span className="navbar__list__item__link">Профиль</span>
         </NavLink>
         <NavLink to="/Dialogs" className="navbar__list__item">
-          <span className="navbar__list__item__link">Messages</span>
+          <span className="navbar__list__item__link">Сообщения</span>
         </NavLink>
         <NavLink to="/News" className="navbar__list__item">
-          <span className="navbar__list__item__link">News</span>
+          <span className="navbar__list__item__link">Новости</span>
         </NavLink>
         <NavLink to="/Music" className="navbar__list__item">
-          <span className="navbar__list__item__link">Music</span>
+          <span className="navbar__list__item__link">Музыка</span>
         </NavLink>
         <NavLink to="/Settings" className="navbar__list__item">
-          <span className="navbar__list__item__link">Settings</span>
+          <span className="navbar__list__item__link">Настройки</span>
+        </NavLink>
+        <NavLink to="/Users" className="navbar__list__item">
+          <span className="navbar__list__item__link">Пользователи</span>
         </NavLink>
         <FriendsContainer />
       </ul>

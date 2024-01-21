@@ -1,39 +1,38 @@
 import React from "react";
-import "./MyPost.css";
+import styles from "./MyPost.module.css";
 import Post from "../Post/Post";
 
-const MyPost = (props) => {
-  let postsElements = props.postsData.map((post) => (
-    <Post message={post.message} like={post.like} key={post.id} />
-  ));
-
+const MyPost = ({
+  addPost,
+  newPostText,
+  onPostChange: onPostChangeProp,
+  postsData,
+}) => {
   let newPostElement = React.createRef();
 
   let onPostChange = () => {
     let text = newPostElement.current.value;
-    props.onPostChange(text);
+    onPostChangeProp(text);
   };
 
   return (
-    <div className="content-mypost">
-      <h3 className="content-mypost__title">My posts</h3>
-      <form action="text" className="content-mypost-form">
+    <div className={styles.wrapper}>
+      <h3 className={styles.title}>Мои посты</h3>
+      <form action="text" className={styles.form}>
         <textarea
           onChange={onPostChange}
-          value={props.newPostText}
+          value={newPostText}
           ref={newPostElement}
-          className="content-mypost-form__input"
-          placeholder="your news..."
+          className={styles.textarea}
+          placeholder="твои новости..."
         />
-        <button
-          type="button"
-          onClick={props.addPost}
-          className="content-mypost-form__button"
-        >
+        <button type="button" onClick={addPost} className={styles.button}>
           Send
         </button>
       </form>
-      {postsElements}
+      {postsData.map((post) => (
+        <Post message={post.message} like={post.like} key={post.id} />
+      ))}
     </div>
   );
 };

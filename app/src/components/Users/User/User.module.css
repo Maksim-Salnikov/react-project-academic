@@ -1,0 +1,56 @@
+.wrapper {
+  display: flex;
+}
+.leftside {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 10px;
+}
+.avatar {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin-bottom: 10px;
+  border-radius: 50px;
+}
+.button {
+  width: 100px;
+  height: 30px;
+  background-color: green;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+.rightside {
+  width: 100%;
+  border: 2px solid grey;
+  border-radius: 5px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.leftsideWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.rightsideWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.fullname {
+  font-size: 25px;
+  font-weight: bold;
+}
+.city,
+.country {
+  font-size: 20px;
+  font-weight: bold;
+}
+.status {
+  font-style: 17px;
+}

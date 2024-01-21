@@ -7,8 +7,8 @@ const Profile = (props) => {
   return (
     <section className="content">
       <ProfileInfo
-        name="Maksim Salnkiov"
-        birthaday="7th December"
+        name="Максим"
+        birthaday="7 декабря"
         city="Lipetsk"
         education="School 21th, Lipetsk"
         website="https://vk.com/maksim.magnus"
