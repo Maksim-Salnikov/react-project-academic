@@ -37,7 +37,7 @@ let Users = (props) => {
             page === props.currentPage - 3 ||
             page === props.currentPage + 3
           ) {
-            return <span key={page}>... </span>;
+            return <div key={page}>... </div>;
           } else {
             return null;
           }
