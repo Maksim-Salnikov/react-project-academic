@@ -27,7 +27,7 @@
 .numbers {
   display: flex;
   font-size: 25px;
-  /* max-width: 930px; */
+  max-width: 100%;
   overflow: hidden;
 }
 .numbers > span {
