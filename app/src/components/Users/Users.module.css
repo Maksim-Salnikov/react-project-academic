@@ -24,3 +24,17 @@
   text-transform: uppercase;
   font-size: 30px;
 }
+.numbers {
+  display: flex;
+  font-size: 25px;
+  /* max-width: 930px; */
+  overflow: hidden;
+}
+.numbers > span {
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+.selectedPage {
+  font-weight: bold;
+}
