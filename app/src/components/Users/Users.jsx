@@ -1,6 +1,7 @@
 import React from "react";
 import User from "./User/User";
 import styles from "./Users.module.css";
+import Preloader from "../common/Preloader/Preloader";
 
 let Users = (props) => {
   let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
@@ -43,6 +44,7 @@ let Users = (props) => {
         })}
         {/* как нибудь нужно разобрать выше (своровано из комментариев) */}
       </div>
+      {props.isFetching ? <Preloader /> : null}
       <div className={styles.usersWrapper}>
         {props.users.map((user) => {
           return (
