@@ -1,16 +1,19 @@
 import React from "react";
 import styles from "./User.module.css";
 import defaultAvatar from "../../../assets/images/defaultAvatar.png";
+import { NavLink } from "react-router-dom";
 
 const User = (props) => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.leftside}>
-        <img
-          src={props.avatar != null ? props.avatar : defaultAvatar}
-          alt="аватар"
-          className={styles.avatar}
-        />
+        <NavLink to={"/Profile/" + props.id}>
+          <img
+            src={props.avatar != null ? props.avatar : defaultAvatar}
+            alt="аватар"
+            className={styles.avatar}
+          />
+        </NavLink>
         <div>
           {props.followed ? (
             <button

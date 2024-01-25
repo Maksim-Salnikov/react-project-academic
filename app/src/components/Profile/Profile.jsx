@@ -12,8 +12,9 @@ const Profile = (props) => {
         city="Lipetsk"
         education="School 21th, Lipetsk"
         website="https://vk.com/maksim.magnus"
+        profile={props.profile}
       />
-      <MyPostContainer store={props.store} />
+      <MyPostContainer />
     </section>
   );
 };

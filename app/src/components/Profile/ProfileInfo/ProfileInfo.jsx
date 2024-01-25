@@ -1,7 +1,11 @@
 import React from "react";
 import "./ProfileInfo.css";
+import Preloader from "../../common/Preloader/Preloader";
 
 const ProfileInfo = (props) => {
+  if (props.profile === null || props.profile === undefined) {
+    return <Preloader />;
+  }
   return (
     <div className="content-profileinfo">
       <div className="content-footer">
@@ -13,7 +17,7 @@ const ProfileInfo = (props) => {
       </div>
       <div className="content-profile">
         <img
-          src="https://i.gifer.com/origin/5b/5b93fc5b280e1231907822faf9608a43_w200.gif"
+          src={props.profile.photos.small}
           alt="avatar"
           className="content-profile__avatar"
         />
