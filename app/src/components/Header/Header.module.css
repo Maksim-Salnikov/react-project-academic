@@ -4,6 +4,7 @@
   padding: 10px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   grid-column-start: 1;
   grid-column-end: 3;
 }
@@ -12,4 +13,22 @@
   height: 50px;
   -o-object-fit: cover;
   object-fit: cover;
+}
+.auth > a {
+  text-decoration: none;
+  color: white;
+  margin-right: 10px;
+}
+.login {
+  color: white;
+  margin-right: 10px;
+}
+.auth {
+  display: flex;
+  align-items: center;
+}
+.avatar {
+  width: 50px;
+  height: 50px;
+  background-color: white;
 }

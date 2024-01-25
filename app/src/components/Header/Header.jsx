@@ -1,7 +1,9 @@
 import React from "react";
 import style from "./Header.module.css";
+import { NavLink } from "react-router-dom";
+import defaultAvatar from "../../assets/images/defaultAvatar.png";
 
-const Header = () => {
+const Header = (props) => {
   return (
     <header className={style.header}>
       <img
@@ -9,6 +11,17 @@ const Header = () => {
         alt="logo: vk"
         className={style.header__logo}
       />
+      <div className={style.auth}>
+        {props.isAuth ? (
+          <span className={style.login}>{props.login}</span>
+        ) : (
+          <NavLink to="/Login">Login</NavLink>
+        )}
+        <img
+          src={props.avatar != null ? props.avatar : defaultAvatar}
+          className={style.avatar}
+        />
+      </div>
     </header>
   );
 };
