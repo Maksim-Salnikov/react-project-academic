@@ -5,6 +5,7 @@ import Profile from "./Profile";
 import { connect } from "react-redux";
 import { setUserProfile } from "../../redux/profile-reducer";
 import { useParams } from "react-router-dom";
+import { ProfileAPI } from "../../api/api";
 
 // В новой версии react-router-dom создание withRouter() не работаем. Ниже создаем withRouter() через хук useParams()
 export function withRouter(Children) {
@@ -20,11 +21,9 @@ class ProfileContainer extends React.Component {
     if (userId === undefined) {
       userId = 2;
     }
-    axios
-      .get(`https://social-network.samuraijs.com/api/1.0/profile/` + userId)
-      .then((response) => {
-        this.props.setUserProfile(response.data);
-      });
+    ProfileAPI.getProfile(userId).then((data) => {
+      this.props.setUserProfile(data);
+    });
   }
   render() {
     return <Profile {...this.props} profile={this.props.profile} />;
