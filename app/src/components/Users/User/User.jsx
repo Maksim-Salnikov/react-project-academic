@@ -2,7 +2,6 @@ import React from "react";
 import styles from "./User.module.css";
 import defaultAvatar from "../../../assets/images/defaultAvatar.png";
 import { NavLink } from "react-router-dom";
-import axios from "axios";
 import { UsersAPI } from "../../../api/api";
 
 const User = (props) => {
@@ -19,12 +18,15 @@ const User = (props) => {
         <div>
           {props.followed ? (
             <button
+              disabled={props.followingInProgress.some((id) => id === props.id)}
               className={styles.button}
               onClick={() => {
+                props.toggleFollowingProgress(true, props.id);
                 UsersAPI.deleteFollow(props.id).then((data) => {
                   if (data.resultCode === 0) {
                     props.unfollow(props.id);
                   }
+                  props.toggleFollowingProgress(false, props.id);
                 });
               }}
             >
@@ -32,12 +34,15 @@ const User = (props) => {
             </button>
           ) : (
             <button
+              disabled={props.followingInProgress.some((id) => id === props.id)}
               className={styles.button}
               onClick={() => {
+                props.toggleFollowingProgress(true, props.id);
                 UsersAPI.postFollow(props.id).then((data) => {
                   if (data.resultCode === 0) {
                     props.follow(props.id);
                   }
+                  props.toggleFollowingProgress(false, props.id);
                 });
               }}
             >

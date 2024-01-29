@@ -59,6 +59,8 @@ let Users = (props) => {
               // city={user.location.city}
               // country={user.location.country}
               key={user.id}
+              followingInProgress={props.followingInProgress}
+              toggleFollowingProgress={props.toggleFollowingProgress}
             />
           );
         })}
