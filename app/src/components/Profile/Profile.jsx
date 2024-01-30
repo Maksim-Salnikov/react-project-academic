@@ -5,10 +5,6 @@ import MyPostContainer from "./MyPost/MyPostContainer";
 import { Navigate } from "react-router-dom";
 
 const Profile = (props) => {
-  if (!props.isAuth) {
-    return <Navigate to="/Login" />;
-  }
-
   return (
     <section className="content">
       <ProfileInfo

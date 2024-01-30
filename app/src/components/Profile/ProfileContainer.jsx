@@ -6,6 +6,7 @@ import { connect } from "react-redux";
 import { setProfile } from "../../redux/profile-reducer";
 import { useParams } from "react-router-dom";
 import { ProfileAPI } from "../../api/api";
+import { withAuthRedirect } from "../../hoc/withAuthRedirect";
 
 // В новой версии react-router-dom создание withRouter() не работаем. Ниже создаем withRouter() через хук useParams()
 export function withRouter(Children) {
@@ -37,6 +38,6 @@ let mapStateToProps = (state) => {
 
 const WhitsUrlContainerComponent = withRouter(ProfileContainer);
 
-export default connect(mapStateToProps, { setProfile })(
-  WhitsUrlContainerComponent
+export default withAuthRedirect(
+  connect(mapStateToProps, { setProfile })(WhitsUrlContainerComponent)
 );

@@ -11,9 +11,6 @@ let Users = (props) => {
   for (let i = 1; i <= pagesCount; i++) {
     pages.push(i);
   }
-  if (!props.isAuth) {
-    return <Navigate to="/Login" />;
-  }
   return (
     <div className={styles.wrapper}>
       <h3 className={styles.title}>Users</h3>

@@ -19,10 +19,6 @@ const Dialogs = (props) => {
     <Message textMessage={message.textMessage} key={message.id} />
   ));
 
-  if (!props.isAuth) {
-    return <Navigate to="/Login" />;
-  }
-
   return (
     <section className="dialogs">
       <h3 className="dialogs-title">Dialogs</h3>
