@@ -13,14 +13,16 @@ const Header = (props) => {
       />
       <div className={style.auth}>
         {props.isAuth ? (
-          <span className={style.login}>{props.login}</span>
+          <>
+            <span className={style.login}>{props.login}</span>
+            <img
+              src={props.avatar != null ? props.avatar : defaultAvatar}
+              className={style.avatar}
+            />
+          </>
         ) : (
           <NavLink to="/Login">Login</NavLink>
         )}
-        <img
-          src={props.avatar != null ? props.avatar : defaultAvatar}
-          className={style.avatar}
-        />
       </div>
     </header>
   );

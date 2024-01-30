@@ -2,6 +2,7 @@ import React from "react";
 import User from "./User/User";
 import styles from "./Users.module.css";
 import Preloader from "../common/Preloader/Preloader";
+import { Navigate } from "react-router-dom";
 
 let Users = (props) => {
   let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
@@ -10,7 +11,9 @@ let Users = (props) => {
   for (let i = 1; i <= pagesCount; i++) {
     pages.push(i);
   }
-
+  if (!props.isAuth) {
+    return <Navigate to="/Login" />;
+  }
   return (
     <div className={styles.wrapper}>
       <h3 className={styles.title}>Users</h3>
