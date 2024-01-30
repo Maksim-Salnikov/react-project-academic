@@ -21,13 +21,7 @@ const User = (props) => {
               disabled={props.followingInProgress.some((id) => id === props.id)}
               className={styles.button}
               onClick={() => {
-                props.toggleFollowingProgress(true, props.id);
-                UsersAPI.deleteFollow(props.id).then((data) => {
-                  if (data.resultCode === 0) {
-                    props.unfollow(props.id);
-                  }
-                  props.toggleFollowingProgress(false, props.id);
-                });
+                props.unfollow(props.id);
               }}
             >
               Unfollow
@@ -37,13 +31,7 @@ const User = (props) => {
               disabled={props.followingInProgress.some((id) => id === props.id)}
               className={styles.button}
               onClick={() => {
-                props.toggleFollowingProgress(true, props.id);
-                UsersAPI.postFollow(props.id).then((data) => {
-                  if (data.resultCode === 0) {
-                    props.follow(props.id);
-                  }
-                  props.toggleFollowingProgress(false, props.id);
-                });
+                props.follow(props.id);
               }}
             >
               Follow

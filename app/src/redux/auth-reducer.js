@@ -1,3 +1,5 @@
+import { HeaderAPI } from "../api/api";
+
 const SET_USER_DATA = "SET_USER_DATA";
 const SET_AVATAR = "SET_AVATAR";
 
@@ -36,4 +38,25 @@ export const setAuthUserData = (userId, login, email) => {
 export const setAvatar = (avatar) => {
   return { type: SET_AVATAR, avatar };
 };
+
+const getProfile = (id) => {
+  return (dispatch) => {
+    HeaderAPI.getProfile(id).then((data) => {
+      dispatch(setAvatar(data.photos.small));
+    });
+  };
+};
+
+export const getAuthMe = () => {
+  return (dispatch) => {
+    HeaderAPI.getAuthMe().then((data) => {
+      if (data.resultCode === 0) {
+        let { id, login, email } = data.data;
+        dispatch(setAuthUserData(id, login, email));
+        getProfile(id);
+      }
+    });
+  };
+};
+
 export default authReducer;
