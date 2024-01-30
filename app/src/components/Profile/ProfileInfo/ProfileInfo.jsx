@@ -26,7 +26,10 @@ const ProfileInfo = (props) => {
           <h3 className="content-profile-info__name">
             {props.profile.fullName}
           </h3>
-          <ProfileStatus status="52" />
+          <ProfileStatus
+            status={props.status}
+            updateStatus={props.updateStatus}
+          />
           <span className="content-profile-info__contacts">
             VK: {props.profile.contacts.vk}
           </span>

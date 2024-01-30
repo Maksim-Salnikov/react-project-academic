@@ -14,6 +14,8 @@ const Profile = (props) => {
         education="School 21th, Lipetsk"
         website="https://vk.com/maksim.magnus"
         profile={props.profile}
+        status={props.status}
+        updateStatus={props.updateStatus}
       />
       <MyPostContainer />
     </section>
