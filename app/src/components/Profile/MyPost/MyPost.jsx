@@ -1,35 +1,36 @@
 import React from "react";
 import styles from "./MyPost.module.css";
 import Post from "../Post/Post";
+import { Field, reduxForm } from "redux-form";
 
-const MyPost = ({
-  addPost,
-  newPostText,
-  onPostChange: onPostChangeProp,
-  postsData,
-}) => {
-  let newPostElement = React.createRef();
+const NewMyPost = (props) => {
+  return (
+    <form className={styles.form} onSubmit={props.handleSubmit}>
+      <Field
+        component="textarea"
+        name="NewPostText"
+        className={styles.textarea}
+        placeholder="твои новости..."
+      />
+      <button className={styles.button}>Отправить</button>
+    </form>
+  );
+};
 
-  let onPostChange = () => {
-    let text = newPostElement.current.value;
-    onPostChangeProp(text);
+const NewMyPostReduxForm = reduxForm({
+  form: "Post",
+})(NewMyPost);
+
+const MyPost = ({ addPost, postsData }) => {
+  let onSubmit = (value) => {
+    console.log(value);
+    addPost(value.NewPostText);
   };
 
   return (
     <div className={styles.wrapper}>
       <h3 className={styles.title}>Мои посты</h3>
-      <form action="text" className={styles.form}>
-        <textarea
-          onChange={onPostChange}
-          value={newPostText}
-          ref={newPostElement}
-          className={styles.textarea}
-          placeholder="твои новости..."
-        />
-        <button type="button" onClick={addPost} className={styles.button}>
-          Send
-        </button>
-      </form>
+      <NewMyPostReduxForm onSubmit={onSubmit} />
       {postsData.map((post) => (
         <Post message={post.message} like={post.like} key={post.id} />
       ))}

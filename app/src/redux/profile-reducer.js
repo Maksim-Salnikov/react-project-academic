@@ -11,7 +11,6 @@ let initialState = {
     { id: 2, message: "Сегодня качнул бицуху жестко", like: "228" },
     { id: 3, message: "52, лонг лайв, не теряем связь", like: "83" },
   ],
-  newPostText: "",
   profile: null,
   status: "",
 };
@@ -23,15 +22,8 @@ let profileReducer = (state = initialState, action) => {
         ...state,
         postsData: [
           ...state.postsData,
-          { id: 5, message: state.newPostText, like: 0 },
+          { id: 5, message: action.NewPostText, like: 0 },
         ],
-        newPostText: "",
-      };
-    }
-    case UPDATE_NEW_POST_TEXT: {
-      return {
-        ...state,
-        newPostText: action.newText,
       };
     }
     case SET_USER_PROFILE: {
@@ -45,11 +37,8 @@ let profileReducer = (state = initialState, action) => {
   }
 };
 
-export const addPostCreator = () => {
-  return { type: ADD_POST };
-};
-export const updateNewPostTextCreator = (text) => {
-  return { type: UPDATE_NEW_POST_TEXT, newText: text };
+export const addPostCreator = (NewPostText) => {
+  return { type: ADD_POST, NewPostText };
 };
 export const setUserProfile = (profile) => {
   return { type: SET_USER_PROFILE, profile };

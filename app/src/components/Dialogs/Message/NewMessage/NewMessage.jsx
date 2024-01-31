@@ -1,32 +1,20 @@
 import React from "react";
 import "./NewMessage.css";
+import { Field, reduxForm } from "redux-form";
 
 const NewMessage = (props) => {
-  let newMessageElement = React.createRef();
-
-  let onMessageChange = () => {
-    let text = newMessageElement.current.value;
-    props.onMessageChange(text);
-  };
-
   return (
-    <form action="text" className="dialogs-correspondense-form">
-      <input
-        onChange={onMessageChange}
-        value={props.newMessageText}
-        ref={newMessageElement}
-        type="text"
+    <form onSubmit={props.handleSubmit} className="dialogs-correspondense-form">
+      <Field
+        component="input"
+        name="NewMessageText"
         className="dialogs-correspondense-form__input"
       />
-      <button
-        type="button"
-        onClick={props.addMessage}
-        className="dialogs-correspondense-form__button"
-      >
-        Send
-      </button>
+      <button className="dialogs-correspondense-form__button">Send</button>
     </form>
   );
 };
 
-export default NewMessage;
+export const NewMessageReduxForm = reduxForm({
+  form: "Message",
+})(NewMessage);
