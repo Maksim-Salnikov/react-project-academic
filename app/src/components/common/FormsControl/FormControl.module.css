@@ -9,3 +9,10 @@
 .formsControl.error > span {
   color: red;
 }
+
+.commonError {
+  width: 100%;
+  height: 30px;
+  border: 3px solid red;
+  color: red;
+}

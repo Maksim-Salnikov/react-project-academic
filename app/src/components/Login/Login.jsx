@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./Login.module.css";
+import error from "../common/FormsControl/FormControl.module.css";
 import { Field, reduxForm } from "redux-form";
 import { Input } from "../common/FormsControl/FormsControl";
 import { required } from "../../utils/Validators/Validatos";
@@ -31,6 +32,7 @@ const LoginForm = (props) => {
         />
         <span className={styles.remember}>Запонмить меня</span>
       </div>
+      {props.error && <div className={error.commonError}>{props.error}</div>}
       <button className={styles.button}>Войти</button>
     </form>
   );
