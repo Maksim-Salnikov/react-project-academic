@@ -1,4 +1,4 @@
-import { HeaderAPI } from "../api/api";
+import { AuthAPI } from "../api/api";
 
 const SET_USER_DATA = "SET_USER_DATA";
 const SET_AVATAR = "SET_AVATAR";
@@ -17,7 +17,6 @@ let authReducer = (state = initialState, action) => {
       return {
         ...state,
         ...action.data,
-        isAuth: true,
       };
     }
     case SET_AVATAR: {
@@ -31,8 +30,8 @@ let authReducer = (state = initialState, action) => {
   }
 };
 
-export const setAuthUserData = (userId, login, email) => {
-  return { type: SET_USER_DATA, data: { userId, login, email } };
+export const setAuthUserData = (userId, login, email, isAuth) => {
+  return { type: SET_USER_DATA, data: { userId, login, email, isAuth } };
 };
 
 export const setAvatar = (avatar) => {
@@ -41,7 +40,7 @@ export const setAvatar = (avatar) => {
 
 const getProfile = (id) => {
   return (dispatch) => {
-    HeaderAPI.getProfile(id).then((data) => {
+    AuthAPI.getProfile(id).then((data) => {
       dispatch(setAvatar(data.photos.small));
     });
   };
@@ -49,11 +48,33 @@ const getProfile = (id) => {
 
 export const getAuthMe = () => {
   return (dispatch) => {
-    HeaderAPI.getAuthMe().then((data) => {
+    AuthAPI.getAuthMe().then((data) => {
       if (data.resultCode === 0) {
         let { id, login, email } = data.data;
-        dispatch(setAuthUserData(id, login, email));
+        dispatch(setAuthUserData(id, login, email, true));
         getProfile(id);
+      }
+    });
+  };
+};
+
+export const login = (email, password, rememberMe) => {
+  return (dispatch) => {
+    AuthAPI.login(email, password, rememberMe).then((data) => {
+      if (data.resultCode === 0) {
+        debugger;
+        dispatch(getAuthMe());
+      }
+    });
+  };
+};
+
+export const logout = () => {
+  return (dispatch) => {
+    AuthAPI.logout().then((data) => {
+      if (data.resultCode === 0) {
+        debugger;
+        dispatch(setAuthUserData(null, null, null, false));
       }
     });
   };

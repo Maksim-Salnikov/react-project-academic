@@ -14,7 +14,12 @@ const Header = (props) => {
       <div className={style.auth}>
         {props.isAuth ? (
           <>
-            <span className={style.login}>{props.login}</span>
+            <div className={style.leftside}>
+              <span className={style.login}>{props.login}</span>
+              <button className={style.logout} onClick={props.logout}>
+                Выйти
+              </button>
+            </div>
             <img
               src={props.avatar != null ? props.avatar : defaultAvatar}
               className={style.avatar}

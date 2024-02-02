@@ -49,13 +49,28 @@ export const ProfileAPI = {
 };
 
 export const HeaderAPI = {
+  getProfile(id) {
+    return instans.get(`profile/` + id).then((response) => {
+      return response.data;
+    });
+  },
+};
+
+export const AuthAPI = {
   getAuthMe() {
     return instans.get(`auth/me`).then((response) => {
       return response.data;
     });
   },
-  getProfile(id) {
-    return instans.get(`profile/` + id).then((response) => {
+  login(email, password, rememberMe) {
+    return instans
+      .post(`auth/login`, { email, password, rememberMe })
+      .then((response) => {
+        return response.data;
+      });
+  },
+  logout() {
+    return instans.delete(`auth/login`).then((response) => {
       return response.data;
     });
   },

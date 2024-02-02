@@ -1,9 +1,5 @@
 import React from "react";
-import {
-  setAuthUserData,
-  setAvatar,
-  getAuthMe,
-} from "../../redux/auth-reducer";
+import { getAuthMe, logout } from "../../redux/auth-reducer";
 import Header from "./Header";
 import { connect } from "react-redux";
 import { HeaderAPI } from "../../api/api";
@@ -27,4 +23,5 @@ let mapStateToProps = (state) => {
 
 export default connect(mapStateToProps, {
   getAuthMe,
+  logout,
 })(HeaderContainer);

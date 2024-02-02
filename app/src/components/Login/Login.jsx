@@ -3,20 +3,21 @@ import styles from "./Login.module.css";
 import { Field, reduxForm } from "redux-form";
 import { Input } from "../common/FormsControl/FormsControl";
 import { required } from "../../utils/Validators/Validatos";
+import { Navigate } from "react-router-dom";
 
 const LoginForm = (props) => {
   return (
     <form className={styles.form} onSubmit={props.handleSubmit}>
       <Field
         component={Input}
-        name={"Login"}
+        name={"email"}
         placeholder="Логин"
         className={styles.login}
         validate={[required]}
       />
       <Field
         component={Input}
-        name={"Password"}
+        name={"password"}
         placeholder="Пароль"
         className={styles.password}
         validate={[required]}
@@ -39,10 +40,14 @@ const LoginReduxForm = reduxForm({
   form: "login",
 })(LoginForm);
 
-const Login = () => {
+const Login = (props) => {
   let onSubmit = (passData) => {
-    console.log(passData);
+    debugger;
+    props.login(passData.email, passData.password, passData.rememberMe);
   };
+  if (props.isAuth) {
+    return <Navigate to="/Profile " />;
+  }
   return (
     <div>
       <h1 className={styles.title}>Войти</h1>
