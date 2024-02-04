@@ -49,7 +49,7 @@ const getProfile = (id) => {
 
 export const getAuthMe = () => {
   return (dispatch) => {
-    AuthAPI.getAuthMe().then((data) => {
+    return AuthAPI.getAuthMe().then((data) => {
       if (data.resultCode === 0) {
         let { id, login, email } = data.data;
         dispatch(setAuthUserData(id, login, email, true));
