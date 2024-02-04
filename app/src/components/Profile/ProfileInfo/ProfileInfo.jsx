@@ -2,6 +2,7 @@ import React from "react";
 import "./ProfileInfo.css";
 import Preloader from "../../common/Preloader/Preloader";
 import ProfileStatus from "./ProfileStatus/ProfileStatus";
+import ProfileStatusWithHooks from "./ProfileStatus/ProfileStatusWithHooks";
 
 const ProfileInfo = (props) => {
   if (props.profile === null || props.profile === undefined) {
@@ -26,7 +27,7 @@ const ProfileInfo = (props) => {
           <h3 className="content-profile-info__name">
             {props.profile.fullName}
           </h3>
-          <ProfileStatus
+          <ProfileStatusWithHooks
             status={props.status}
             updateStatus={props.updateStatus}
           />
