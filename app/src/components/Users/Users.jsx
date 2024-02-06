@@ -3,7 +3,6 @@ import User from "./User/User";
 import styles from "./Users.module.css";
 import Preloader from "../common/Preloader/Preloader";
 import Paginator from "./Paginator/Paginator";
-import PaginatorFromDimych from "./Paginator/PaginatorFromDimych";
 
 let Users = ({
   totalUsersCount,
