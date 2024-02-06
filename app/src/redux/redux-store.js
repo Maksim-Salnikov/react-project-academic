@@ -2,6 +2,7 @@ import {
   applyMiddleware,
   combineReducers,
   legacy_createStore as createStore,
+  compose,
 } from "redux";
 import profileReducer from "./profile-reducer";
 import dialogsReducer from "./dialogs-reducer";
@@ -20,8 +21,9 @@ let reducers = combineReducers({
   app: appReducer,
 });
 
-let store = createStore(reducers, applyMiddleware(thunk));
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(reducers, composeEnhancers(applyMiddleware(thunk)));
 
-window.store = store;
+window.__store__ = store;
 
 export default store;
