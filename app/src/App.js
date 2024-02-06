@@ -5,7 +5,7 @@ import Navbar from "./components/Navbar/Navbar";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, HashRouter } from "react-router-dom";
 import ProfileContainer from "./components/Profile/ProfileContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import Login from "./components/Login/LoginContainer";
@@ -58,13 +58,13 @@ let ConnectApp = connect(mapStateToProps, { initializeApp })(App);
 
 let SafeSpaceApp = () => {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <React.StrictMode>
         <Provider store={store}>
           <ConnectApp />
         </Provider>
       </React.StrictMode>
-    </BrowserRouter>
+    </HashRouter>
   );
 };
 
