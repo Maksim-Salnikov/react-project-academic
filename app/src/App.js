@@ -13,6 +13,9 @@ import Login from "./components/Login/LoginContainer";
 import { connect } from "react-redux";
 import { initializeApp } from "./redux/app-reducer";
 import Preloader from "./components/common/Preloader/Preloader";
+import { BrowserRouter } from "react-router-dom";
+import { Provider } from "react-redux";
+import store from "./redux/redux-store";
 
 class App extends React.Component {
   componentDidMount() {
@@ -47,4 +50,18 @@ let mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { initializeApp })(App);
+let ConnectApp = connect(mapStateToProps, { initializeApp })(App);
+
+let SafeSpaceApp = () => {
+  return (
+    <BrowserRouter>
+      <React.StrictMode>
+        <Provider store={store}>
+          <ConnectApp />
+        </Provider>
+      </React.StrictMode>
+    </BrowserRouter>
+  );
+};
+
+export default SafeSpaceApp;
