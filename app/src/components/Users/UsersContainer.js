@@ -8,7 +8,6 @@ import {
   getUsersCurrentPage,
 } from "../../redux/users-reducer";
 import React from "react";
-import { withAuthRedirect } from "../../hoc/withAuthRedirect";
 import { compose } from "redux";
 import {
   getUsers,

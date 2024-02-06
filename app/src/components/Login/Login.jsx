@@ -1,38 +1,24 @@
 import React from "react";
 import styles from "./Login.module.css";
-import error from "../common/FormsControl/FormControl.module.css";
-import { Field, reduxForm } from "redux-form";
-import { Input } from "../common/FormsControl/FormsControl";
+import { reduxForm } from "redux-form";
+import { CreateField, Input } from "../common/FormsControl/FormsControl";
 import { required } from "../../utils/Validators/Validatos";
 import { Navigate } from "react-router-dom";
 
-const LoginForm = (props) => {
+const LoginForm = ({ handleSubmit, error }) => {
   return (
-    <form className={styles.form} onSubmit={props.handleSubmit}>
-      <Field
-        component={Input}
-        name={"email"}
-        placeholder="Логин"
-        className={styles.login}
-        validate={[required]}
-      />
-      <Field
-        component={Input}
-        name={"password"}
-        placeholder="Пароль"
-        className={styles.password}
-        validate={[required]}
-      />
+    <form className={styles.form} onSubmit={handleSubmit}>
+      {CreateField(Input, "email", "Логин", styles.login, [required])}
+      {CreateField(Input, "password", "пароль", styles.password, [required], {
+        type: "password",
+      })}
       <div>
-        <Field
-          component={Input}
-          name={"rememberMe"}
-          type="checkbox"
-          className={styles.checkbox}
-        />
-        <span className={styles.remember}>Запонмить меня</span>
+        {CreateField(Input, "rememberMe", null, styles.checkbox, null, {
+          type: "checkbox",
+        })}
+        <span className={styles.remember}>Запомнить меня</span>
       </div>
-      {props.error && <div className={error.commonError}>{props.error}</div>}
+      {error && <div className={error.commonError}>{error}</div>}
       <button className={styles.button}>Войти</button>
     </form>
   );

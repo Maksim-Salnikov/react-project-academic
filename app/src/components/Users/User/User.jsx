@@ -2,36 +2,46 @@ import React from "react";
 import styles from "./User.module.css";
 import defaultAvatar from "../../../assets/images/defaultAvatar.png";
 import { NavLink } from "react-router-dom";
-import { UsersAPI } from "../../../api/api";
 
-const User = (props) => {
+const User = ({
+  id,
+  avatar,
+  followed,
+  unfollow,
+  followingInProgress,
+  follow,
+  name,
+  status,
+  country,
+  city,
+}) => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.leftside}>
-        <NavLink to={"/Profile/" + props.id}>
+        <NavLink to={"/Profile/" + id}>
           <img
-            src={props.avatar != null ? props.avatar : defaultAvatar}
+            src={avatar != null ? avatar : defaultAvatar}
             alt="аватар"
             className={styles.avatar}
           />
         </NavLink>
         <div>
-          {props.followed ? (
+          {followed ? (
             <button
-              disabled={props.followingInProgress.some((id) => id === props.id)}
+              disabled={followingInProgress.some((id) => id === id)}
               className={styles.button}
               onClick={() => {
-                props.unfollow(props.id);
+                unfollow(id);
               }}
             >
               Unfollow
             </button>
           ) : (
             <button
-              disabled={props.followingInProgress.some((id) => id === props.id)}
+              disabled={followingInProgress.some((id) => id === id)}
               className={styles.button}
               onClick={() => {
-                props.follow(props.id);
+                follow(id);
               }}
             >
               Follow
@@ -41,12 +51,12 @@ const User = (props) => {
       </div>
       <div className={styles.rightside}>
         <div className={styles.leftsideWrapper}>
-          <span className={styles.fullname}>{props.name}</span>
-          <span className={styles.status}>{props.status}</span>
+          <span className={styles.fullname}>{name}</span>
+          <span className={styles.status}>{status}</span>
         </div>
         <div className={styles.rightsideWrapper}>
-          <span className={styles.country}>{"props.country"}</span>
-          <span className={styles.city}>{"props.city"}</span>
+          <span className={styles.country}>{country}</span>
+          <span className={styles.city}>{city}</span>
         </div>
       </div>
     </div>

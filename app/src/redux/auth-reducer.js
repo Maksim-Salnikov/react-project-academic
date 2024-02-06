@@ -1,8 +1,8 @@
 import { AuthAPI } from "../api/api";
 import { stopSubmit } from "redux-form";
 
-const SET_USER_DATA = "SET_USER_DATA";
-const SET_AVATAR = "SET_AVATAR";
+const SET_USER_DATA = "app/auth/SET_USER_DATA";
+const SET_AVATAR = "app/auth/SET_AVATAR";
 
 let initialState = {
   userId: null,
@@ -39,50 +39,37 @@ export const setAvatar = (avatar) => {
   return { type: SET_AVATAR, avatar };
 };
 
-const getProfile = (id) => {
-  return (dispatch) => {
-    AuthAPI.getProfile(id).then((data) => {
-      dispatch(setAvatar(data.photos.small));
-    });
-  };
+const getProfile = (id) => async (dispatch) => {
+  let data = await AuthAPI.getProfile(id);
+  dispatch(setAvatar(data.photos.small));
 };
 
-export const getAuthMe = () => {
-  return (dispatch) => {
-    return AuthAPI.getAuthMe().then((data) => {
-      if (data.resultCode === 0) {
-        let { id, login, email } = data.data;
-        dispatch(setAuthUserData(id, login, email, true));
-        getProfile(id);
-      }
-    });
-  };
+export const getAuthMe = () => async (dispatch) => {
+  let data = await AuthAPI.getAuthMe();
+  if (data.resultCode === 0) {
+    let { id, login, email } = data.data;
+    dispatch(setAuthUserData(id, login, email, true));
+    getProfile(id);
+  }
 };
 
-export const login = (email, password, rememberMe) => {
-  return (dispatch) => {
-    AuthAPI.login(email, password, rememberMe).then((data) => {
-      if (data.resultCode === 0) {
-        debugger;
-        dispatch(getAuthMe());
-      } else {
-        let message =
-          data.messages.length > 0 ? data.messages[0] : "Some error";
-        dispatch(stopSubmit("login", { _error: message }));
-      }
-    });
-  };
+export const login = (email, password, rememberMe) => async (dispatch) => {
+  let data = await AuthAPI.login(email, password, rememberMe);
+  if (data.resultCode === 0) {
+    debugger;
+    dispatch(getAuthMe());
+  } else {
+    let message = data.messages.length > 0 ? data.messages[0] : "Some error";
+    dispatch(stopSubmit("login", { _error: message }));
+  }
 };
 
-export const logout = () => {
-  return (dispatch) => {
-    AuthAPI.logout().then((data) => {
-      if (data.resultCode === 0) {
-        debugger;
-        dispatch(setAuthUserData(null, null, null, false));
-      }
-    });
-  };
+export const logout = () => async (dispatch) => {
+  let data = await AuthAPI.logout();
+  if (data.resultCode === 0) {
+    debugger;
+    dispatch(setAuthUserData(null, null, null, false));
+  }
 };
 
 export default authReducer;

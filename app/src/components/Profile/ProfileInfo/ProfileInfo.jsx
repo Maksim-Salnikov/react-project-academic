@@ -1,7 +1,6 @@
 import React from "react";
 import "./ProfileInfo.css";
 import Preloader from "../../common/Preloader/Preloader";
-import ProfileStatus from "./ProfileStatus/ProfileStatus";
 import ProfileStatusWithHooks from "./ProfileStatus/ProfileStatusWithHooks";
 
 const ProfileInfo = (props) => {
@@ -37,27 +36,6 @@ const ProfileInfo = (props) => {
           <span className="content-profile-info__gitHub">
             GitHub: {props.profile.contacts.github}
           </span>
-          {/* <span className="content-profile-info__lookingForAJob">
-            {
-              (props.profile.lookingForAJob = (lookingForAJob) => {
-                if (lookingForAJob === true) {
-                  return (
-                    <div>
-                      <span>Ищет работу?</span> \
-                      <img src="https://w7.pngwing.com/pngs/70/958/png-transparent-check-mark-computer-icons-green-tick-mark-check-mark-blog-symbol.png" />
-                    </div>
-                  );
-                } else {
-                  return (
-                    <div>
-                      <span>Ищет работу?</span> \
-                      <img src="https://w7.pngwing.com/pngs/174/58/png-transparent-red-cross-cdr-angle-flag-thumbnail.png" />
-                    </div>
-                  );
-                }
-              })
-            }
-          </span> */}
           <span className="content-profile-info__AboutMe">
             AboutMe: {props.profile.aboutMe}
           </span>

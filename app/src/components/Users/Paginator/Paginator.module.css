@@ -1,0 +1,26 @@
+.paginator {
+  display: flex;
+  justify-content: space-between;
+  font-size: 25px;
+  max-width: 100%;
+  overflow: hidden;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+.paginator > span {
+  margin-right: 2px;
+  margin-left: 2px;
+  text-align: center;
+  background-color: green;
+  border: 1px solid black;
+  cursor: pointer;
+  flex-basis: 100%;
+}
+.paginator > div {
+  flex-basis: 100%;
+  text-align: center;
+}
+span.selectedPage {
+  font-weight: bold;
+  background-color: yellow;
+}
