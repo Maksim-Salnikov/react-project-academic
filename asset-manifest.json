@@ -1,23 +1,23 @@
 {
   "files": {
     "main.css": "/react-project-academic/static/css/main.7bd4de18.css",
-    "main.js": "/react-project-academic/static/js/main.14bca023.js",
+    "main.js": "/react-project-academic/static/js/main.d2768783.js",
     "static/css/895.653cda9f.chunk.css": "/react-project-academic/static/css/895.653cda9f.chunk.css",
     "static/js/895.0064e308.chunk.js": "/react-project-academic/static/js/895.0064e308.chunk.js",
     "static/css/434.9acbe16b.chunk.css": "/react-project-academic/static/css/434.9acbe16b.chunk.css",
-    "static/js/434.bf5d192a.chunk.js": "/react-project-academic/static/js/434.bf5d192a.chunk.js",
+    "static/js/434.08f87403.chunk.js": "/react-project-academic/static/js/434.08f87403.chunk.js",
     "static/media/loading-green-loading.gif": "/react-project-academic/static/media/loading-green-loading.4064527791e609cfbe59.gif",
     "static/media/defaultAvatar.png": "/react-project-academic/static/media/defaultAvatar.1321f140b8896a575011.png",
     "index.html": "/react-project-academic/index.html",
     "main.7bd4de18.css.map": "/react-project-academic/static/css/main.7bd4de18.css.map",
-    "main.14bca023.js.map": "/react-project-academic/static/js/main.14bca023.js.map",
+    "main.d2768783.js.map": "/react-project-academic/static/js/main.d2768783.js.map",
     "895.653cda9f.chunk.css.map": "/react-project-academic/static/css/895.653cda9f.chunk.css.map",
     "895.0064e308.chunk.js.map": "/react-project-academic/static/js/895.0064e308.chunk.js.map",
     "434.9acbe16b.chunk.css.map": "/react-project-academic/static/css/434.9acbe16b.chunk.css.map",
-    "434.bf5d192a.chunk.js.map": "/react-project-academic/static/js/434.bf5d192a.chunk.js.map"
+    "434.08f87403.chunk.js.map": "/react-project-academic/static/js/434.08f87403.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.7bd4de18.css",
-    "static/js/main.14bca023.js"
+    "static/js/main.d2768783.js"
   ]
 }
