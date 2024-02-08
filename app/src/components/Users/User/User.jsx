@@ -38,7 +38,7 @@ const User = ({
             </button>
           ) : (
             <button
-              disabled={followingInProgress.some((id) => id === id)}
+              disabled={followingInProgress.some((item) => item === id)}
               className={styles.button}
               onClick={() => {
                 follow(id);
